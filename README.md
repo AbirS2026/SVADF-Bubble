@@ -223,6 +223,23 @@ BibTeX entry for the paper:
   url          = {https://arxiv.org/abs/2604.12062}
 }
 ```
+Methodological paper on which the stochastic-volatility framework builds:
+
+Sarkar, A.  
+**Double Local-to-Unity Asymptotics under Persistent Stochastic Volatility.**  
+arXiv preprint.
+https://arxiv.org/abs/2512.06823
+BibTeX entry:
+
+```bibtex
+@misc{sarkar2025double,
+  author        = {Sarkar, Abir},
+  title         = {Double Local-to-Unity Asymptotics under Persistent Stochastic Volatility},
+  year          = {2025},
+  archivePrefix = {arXiv},
+  note          = {arXiv preprint}
+}
+```
 
 The empirical data source is Yahoo Finance:
 
