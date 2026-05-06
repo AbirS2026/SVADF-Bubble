@@ -6,6 +6,8 @@ Nasdaq_crypto code does the same for Nasdaq, Bitcoin, and Ethereum (Figure 9 and
 
 Threshold selection (for origination and collapse) code generates Figure 12 and Online Appendix Figure A.3.
 
+Bubble window longest code provides the optimal bubble window wrt intensity for any stock given a timeframe.
+
 Appendix Crypto file has some counter examples on the assumptions of PWY approach (Figure A.1 of Online Appendix), and a few more crypto analysis (Figure A.2 of online appendix).
 
 Bubble_timeperiod_12stocks creates the Figure 11 and Table 2 of the main paper.
