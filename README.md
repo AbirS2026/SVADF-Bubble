@@ -225,7 +225,7 @@ BibTeX entry for the paper:
 ```
 Methodological paper on which the stochastic-volatility framework builds:
 
-Sarkar, A.  
+Sarkar, A. and Wells, M. T.  
 **Double Local-to-Unity Asymptotics under Persistent Stochastic Volatility.**  
 arXiv preprint.
 https://arxiv.org/abs/2512.06823
