@@ -4,7 +4,7 @@ Recursive SV-ADF Date Stamps (Tech and semis) date stamp bubble origination and 
 
 Nasdaq_crypto code does the same for Nasdaq, Bitcoin, and Ethereum (Figure 9 and 10).
 
-Threshold selection (for origination and collapse) code generates Figure 12 and Online Appendix Figure A.3.
+Threshold selection (for origination and collapse) code generates Figure 12 and Online Appendix Figure A.3, Table A.1.
 
 Bubble window longest code provides the optimal bubble window wrt intensity for any stock given a timeframe.
 
