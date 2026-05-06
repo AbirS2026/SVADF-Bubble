@@ -213,14 +213,11 @@ arXiv:2604.12062.
 BibTeX entry for the paper:
 
 ```bibtex
-@misc{sarkarwells2026aibubble,
-  author       = {Sarkar, Abir and Wells, Martin T.},
-  title        = {Is There an AI Bubble? Robust Date-Stamping for Periods of Exuberance},
-  year         = {2026},
-  eprint       = {2604.12062},
-  archivePrefix = {arXiv},
-  primaryClass = {econ.EM},
-  url          = {https://arxiv.org/abs/2604.12062}
+@article{sarkar2026there,
+  title={Is There an AI Bubble? Robust Date-Stamping for Periods of Exuberance},
+  author={Sarkar, Abir and Wells, Martin T},
+  journal={arXiv preprint arXiv:2604.12062},
+  year={2026}
 }
 ```
 Methodological paper on which the stochastic-volatility framework builds:
@@ -232,12 +229,11 @@ https://arxiv.org/abs/2512.06823
 BibTeX entry:
 
 ```bibtex
-@misc{sarkar2025double,
-  author        = {Sarkar, Abir},
-  title         = {Double Local-to-Unity Asymptotics under Persistent Stochastic Volatility},
-  year          = {2025},
-  archivePrefix = {arXiv},
-  note          = {arXiv preprint}
+@article{sarkar2025double,
+  title={Double Local-to-Unity: Estimation under Nearly Nonstationary Volatility},
+  author={Sarkar, Abir and Wells, Martin T},
+  journal={arXiv preprint arXiv:2512.06823},
+  year={2025}
 }
 ```
 
