@@ -4,9 +4,9 @@ Recursive SV-ADF Date Stamps (Tech and semis) date stamp bubble origination and 
 
 Nasdaq_crypto code does the same for Nasdaq, Bitcoin, and Ethereum (Figure 9 and 10).
 
-Threshold selection (for origination and collapse) code generates Figure 12 and Online Appendix Figure 3.
+Threshold selection (for origination and collapse) code generates Figure 12 and Online Appendix Figure A.3.
 
-Appendix Crypto file has some counter examples on the assumptions of PWY approach (Figure 1 of Online Appendix), and a few more crypto analysis (Figure 2 of online appendix).
+Appendix Crypto file has some counter examples on the assumptions of PWY approach (Figure A.1 of Online Appendix), and a few more crypto analysis (Figure A.2 of online appendix).
 
 Bubble_timeperiod_12stocks creates the Figure 11 and Table 2 of the main paper.
 
