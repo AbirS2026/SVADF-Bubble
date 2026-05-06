@@ -203,7 +203,7 @@ Because Yahoo Finance data may be updated or revised over time, exact numerical 
 
 ## Citation
 
-If you use this code, please cite the paper:
+If you find this repository helpful, kindly cite the paper and share with more researchers interested in this domain:
 
 Sarkar, A. and Wells, M. T.  
 **Is There an AI Bubble? Robust Date-Stamping for Periods of Exuberance.**  
