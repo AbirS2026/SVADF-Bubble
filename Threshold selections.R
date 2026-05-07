@@ -51,8 +51,8 @@ if (!dir.exists(TABLE_DIR)) {
 FIGURE12_PDF <- file.path(OUTPUT_DIR, "sv_adf_plot_simulated_one.pdf")
 FIGURE12_PNG <- file.path(OUTPUT_DIR, "sv_adf_plot_simulated_one.png")
 
-APPENDIX_FIGURE_A3_PDF <- file.path(OUTPUT_DIR, "critical_values_plot.pdf")
-APPENDIX_FIGURE_A3_PNG <- file.path(OUTPUT_DIR, "critical_values_plot.png")
+APPENDIX_FIGURE_A3_PDF <- file.path(OUTPUT_DIR, "critical_values_plots.pdf")
+APPENDIX_FIGURE_A3_PNG <- file.path(OUTPUT_DIR, "critical_values_plots.png")
 
 APPENDIX_TABLE_A1_CSV <- file.path(TABLE_DIR, "tableA1_critical_values.csv")
 
