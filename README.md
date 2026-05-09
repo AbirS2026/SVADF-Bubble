@@ -127,7 +127,19 @@ Relevant paper outputs:
 - Table 5 of the main paper
 
 ---
+### 6. Robustness check with updated origination threshold
 
+File: [`robustness_check_updated_threshold_for_origination.R`](https://github.com/AbirS2026/SVADF-Bubble/blob/main/robustness_check_updated_threshold_for_origination.R)
+
+This script performs robustness checks for the empirical analyses using the updated origination threshold. In particular, it implements the revised SV-ADF origination boundary based on the constant threshold \(\log(n)/10\), rather than the recursive threshold \(\log(ns)/10\), while keeping the collapse-screening rules unchanged.
+
+The script is intended to verify that the main empirical date-stamping conclusions are robust to the updated origination-threshold calibration.
+
+Relevant outputs:
+
+- Robustness checks for the main empirical SV-ADF date-stamping results
+- Updated-threshold comparison for the analyses involving technology stocks, semiconductor and AI-infrastructure stocks, Nasdaq, and cryptocurrencies
+  
 ## How to Use the Code
 
 Each script can be run independently in R. The empirical scripts download daily adjusted closing prices from Yahoo Finance, usually through the `quantmod` package.
