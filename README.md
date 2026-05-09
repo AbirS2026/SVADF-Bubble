@@ -127,11 +127,11 @@ Relevant paper outputs:
 - Table 5 of the main paper
 
 ---
-### 6. Robustness check with updated origination threshold
+### 10. Robustness check with updated origination threshold
 
 File: [`robustness_check_updated_threshold_for_origination.R`](https://github.com/AbirS2026/SVADF-Bubble/blob/main/robustness_check_updated_threshold_for_origination.R)
 
-This script performs robustness checks for the empirical analyses using the updated origination threshold. In particular, it implements the revised SV-ADF origination boundary based on the constant threshold \(\log(n)/10\), rather than the recursive threshold \(\log(ns)/10\), while keeping the collapse-screening rules unchanged.
+This script performs robustness checks for the empirical analyses using the updated origination threshold. In particular, it implements the revised SV-ADF origination boundary based on the constant threshold rather than the recursive threshold, while keeping the collapse-screening rules unchanged.
 
 The script is intended to verify that the main empirical date-stamping conclusions are robust to the updated origination-threshold calibration.
 
