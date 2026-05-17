@@ -23,17 +23,9 @@
 # - Set SAVE_TABLES <- TRUE to save the Table 2 decision outputs.
 ################################################################################
 
-# ------------------------------------------------------------------------------
-# Libraries
-# ------------------------------------------------------------------------------
-
 library(quantmod)
 library(ggplot2)
 library(dplyr)
-
-# ------------------------------------------------------------------------------
-# Global settings
-# ------------------------------------------------------------------------------
 
 SAVE_FIGURES <- TRUE
 SAVE_TABLES <- TRUE
@@ -56,10 +48,6 @@ FIGURE11_PNG <- file.path(OUTPUT_DIR, "delta_gamma_dual_axis_plot.png")
 TABLE2_CSV <- file.path(TABLE_DIR, "table2_bubble_decisions_two_periods.csv")
 TABLE2_LATEX_ROWS <- file.path(TABLE_DIR, "table2_latex_rows.txt")
 
-# ------------------------------------------------------------------------------
-# Common ticker set
-# ------------------------------------------------------------------------------
-
 ALL_TICKERS <- c(
   "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META",
   "TSLA", "TSM", "AVGO", "PLTR", "ASML", "MU"
@@ -80,11 +68,6 @@ COMPANY_LABELS <- c(
   MU    = "Micron"
 )
 
-# ------------------------------------------------------------------------------
-# Helper functions
-# ------------------------------------------------------------------------------
-
-# Fetch adjusted closing prices from Yahoo Finance.
 fetch_adjusted_prices <- function(ticker, start_date, end_date) {
   xts_obj <- tryCatch(
     quantmod::getSymbols(
@@ -115,7 +98,6 @@ fetch_adjusted_prices <- function(ticker, start_date, end_date) {
   na.omit(price_xts)
 }
 
-# Resolve either a ticker or a company name into the ticker used by Yahoo Finance.
 resolve_ticker <- function(x) {
   name_to_ticker <- c(
     "apple" = "AAPL",
@@ -149,17 +131,10 @@ resolve_ticker <- function(x) {
   stop(sprintf("Unknown stock name/ticker: '%s'", x))
 }
 
-# Convert a bubble decision into the compact symbols used in the LaTeX table.
 decision_symbol <- function(x) {
   ifelse(x == "Bubble", "\\bubble", "\\nobubble")
 }
 
-################################################################################
-# Figure 11
-# Estimated delta_n and gamma_n with confidence intervals
-################################################################################
-
-# Compute delta_hat, gamma_hat, and their confidence intervals for one price series.
 compute_delta_gamma_stats <- function(price_xts, lambda = 0.05) {
   X <- as.numeric(na.omit(price_xts))
   
@@ -200,10 +175,9 @@ compute_delta_gamma_stats <- function(price_xts, lambda = 0.05) {
   if (!is.na(delta_hat) && !is.na(gamma_hat)) {
     
     if (delta_hat < 1) {
-      # Mildly integrated / local-to-unity side.
       regime_code <- 0
       
-      delta_half_width <- cv_normal * 2 / (Tn^((1 + gamma_hat) / 2))
+      delta_half_width <- cv_normal * sqrt(2) / (Tn^((1 + gamma_hat) / 2))
       delta_lower <- delta_hat - delta_half_width
       delta_upper <- delta_hat + delta_half_width
       
@@ -213,7 +187,6 @@ compute_delta_gamma_stats <- function(price_xts, lambda = 0.05) {
       gamma_upper <- gamma_hat + gamma_half_width
       
     } else if (delta_hat > 1) {
-      # Mildly explosive side.
       regime_code <- 1
       
       delta_half_width <- cv_cauchy * 2 /
@@ -240,8 +213,6 @@ compute_delta_gamma_stats <- function(price_xts, lambda = 0.05) {
   )
 }
 
-# Rescale numerical values into a plotting band.
-# This is only for the visual dual-axis display.
 scale_to_band <- function(x, xmin, xmax, low, high) {
   if (!is.finite(xmin) || !is.finite(xmax) || xmax == xmin) {
     return(rep((low + high) / 2, length(x)))
@@ -314,7 +285,6 @@ make_delta_gamma_dual_plot <- function(
     levels = unname(COMPANY_LABELS[ALL_TICKERS])
   )
   
-  # Delta is shown in the lower band; gamma is shown in the upper band.
   delta_band_low <- 0.08
   delta_band_high <- 0.42
   gamma_band_low <- 0.58
@@ -440,14 +410,6 @@ make_delta_gamma_dual_plot <- function(
   ))
 }
 
-################################################################################
-# Table 2
-# Bubble/no-bubble classifications across empirical time periods
-################################################################################
-
-# Compute coefficient-based DF statistic:
-#   DF_delta = n * (delta_hat - 1),
-# from X_t = delta X_{t-1} + u_t, estimated without intercept.
 compute_df_delta <- function(X) {
   X <- as.numeric(X)
   X <- X[is.finite(X)]
@@ -484,11 +446,6 @@ compute_df_delta <- function(X) {
   )
 }
 
-# Simulate the stochastic-volatility unit-root null:
-#   X_t = X_{t-1} + u_t,
-#   u_t = sigma_t eps_t,
-#   log(sigma_t^2) = phi_n log(sigma_{t-1}^2) + eta_t,
-#   phi_n = 1 - d / log(log n).
 simulate_null_unit_root_sv <- function(
     n_eff,
     d_par = 1,
@@ -545,7 +502,6 @@ bubble_decisions_ar1 <- function(
   
   tickers <- vapply(stock_names, resolve_ticker, character(1))
   
-  # Cache bootstrap critical values by sample size and simulation settings.
   boot_cache <- new.env(parent = emptyenv())
   
   bootstrap_cv_90 <- function(n_eff) {
@@ -693,7 +649,6 @@ bubble_decisions_ar1 <- function(
   results
 }
 
-# Create the final Table 2 layout used in the paper.
 make_table2_decisions <- function(pre2020_results, post2022_results) {
   pre_tbl <- pre2020_results |>
     select(
@@ -720,7 +675,6 @@ make_table2_decisions <- function(pre2020_results, post2022_results) {
   table2
 }
 
-# Write LaTeX rows corresponding to Table 2.
 write_table2_latex_rows <- function(table2, file = TABLE2_LATEX_ROWS) {
   latex_rows <- apply(table2, 1, function(row) {
     paste0(
@@ -736,10 +690,6 @@ write_table2_latex_rows <- function(table2, file = TABLE2_LATEX_ROWS) {
   invisible(latex_rows)
 }
 
-################################################################################
-# Run Figure 11
-################################################################################
-
 figure11_output <- make_delta_gamma_dual_plot(
   start_date = "2022-01-01",
   end_date = "2026-03-01",
@@ -749,11 +699,6 @@ figure11_output <- make_delta_gamma_dual_plot(
 
 figure11_estimates <- figure11_output$estimates
 
-################################################################################
-# Run Table 2 decision exercises
-################################################################################
-
-# Main post-2022 AI-era period used in Table 2.
 decisions_2022_2026 <- bubble_decisions_ar1(
   stock_names = ALL_TICKERS,
   start_date = "2022-01-01",
@@ -765,7 +710,6 @@ decisions_2022_2026 <- bubble_decisions_ar1(
   verbose = TRUE
 )
 
-# Earlier period used in Table 2.
 decisions_2018_2020 <- bubble_decisions_ar1(
   stock_names = ALL_TICKERS,
   start_date = "2018-06-01",
@@ -777,8 +721,6 @@ decisions_2018_2020 <- bubble_decisions_ar1(
   verbose = TRUE
 )
 
-# Optional robustness window. This is not the main Table 2 comparison, but it is
-# useful for checking the recent AI-era subsample.
 decisions_2024_2026 <- bubble_decisions_ar1(
   stock_names = ALL_TICKERS,
   start_date = "2024-01-01",
@@ -819,7 +761,3 @@ if (isTRUE(SAVE_TABLES)) {
     row.names = FALSE
   )
 }
-
-################################################################################
-# End of script
-################################################################################
