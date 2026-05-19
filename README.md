@@ -73,8 +73,8 @@ This script generates the simulation evidence used to motivate and calibrate the
 Relevant outputs:
 
 - Figure 12 of the main paper
-- Figure A.3 of the Online Appendix
-- Table A.1 of the Online Appendix
+- Figure 15 of the Online Appendix
+- Table 6 of the Online Appendix
 
 ---
 
@@ -109,8 +109,8 @@ This script generates additional Online Appendix results. It includes simulation
 
 Relevant Online Appendix outputs:
 
-- Figure A.1: simulation evidence against the PWY reset assumption
-- Figure A.2: additional cryptocurrency bubble-detection results
+- Figure 13: simulation evidence against the PWY reset assumption
+- Figure 14: additional cryptocurrency bubble-detection results
 
 ---
 
