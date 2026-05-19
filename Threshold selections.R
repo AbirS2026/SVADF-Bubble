@@ -1,7 +1,7 @@
 ################################################################################
 # Threshold selections.R
 #
-# Replication code for Figure 12 of the main paper and Figure A.3 / Table A.1
+# Replication code for Figure 12 of the main paper and Figure 15 / Table 6
 # of the Online Appendix for:
 #
 # "Is There an AI Bubble? Robust Date-Stamping for Periods of Exuberance"
@@ -13,10 +13,10 @@
 #     - estimated origination fraction \hat r_e,
 #     - estimated collapse fraction \hat r_f.
 #
-# Online Appendix Figure A.3:
+# Online Appendix Figure 15:
 #   Simulated coefficient-based critical values under H0 and H1.
 #
-# Online Appendix Table A.1:
+# Online Appendix Table 6:
 #   Simulated coefficient-based critical values for n = 500, 550, ..., 1000.
 #
 # Notes:
@@ -24,7 +24,7 @@
 # - This script uses only base R.
 # - Set SAVE_FIGURES <- TRUE to save PDF/PNG figures.
 # - Set RECOMPUTE_CRITICAL_VALUES <- TRUE to rerun the Monte Carlo simulation
-#   for Table A.1 and Figure A.3. Otherwise, the paper values are used directly.
+#   for Table 6 and Figure 15. Otherwise, the paper values are used directly.
 ################################################################################
 
 # ------------------------------------------------------------------------------
@@ -455,7 +455,7 @@ make_simulated_svadf_path_plot <- function(
 }
 
 ################################################################################
-# Online Appendix Table A.1 and Figure A.3
+# Online Appendix Table 6 and Figure 15
 # Critical values under H0 and H1
 ################################################################################
 
@@ -595,7 +595,7 @@ simulate_critical_value_table <- function(
   )
 }
 
-# Paper values used in Online Appendix Table A.1.
+# Paper values used in Online Appendix Table 6.
 get_paper_critical_value_table <- function() {
   data.frame(
     n = c(500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000),
@@ -690,7 +690,7 @@ figure12_output <- make_simulated_svadf_path_plot(
   save_figure = SAVE_FIGURES
 )
 
-# Table A.1 and Figure A.3 of the Online Appendix.
+# Table 6 and Figure 15 of the Online Appendix.
 critical_value_table <- if (isTRUE(RECOMPUTE_CRITICAL_VALUES)) {
   simulate_critical_value_table(
     B = 1000,
