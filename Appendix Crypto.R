@@ -1,14 +1,14 @@
 ################################################################################
 # Appendix Crypto.R
 #
-# Replication code for Online Appendix Figures A.1 and A.2 of:
+# Replication code for Online Appendix Figures 13 and 14 of:
 # "Is There an AI Bubble? Robust Date-Stamping for Periods of Exuberance"
 #
-# Online Appendix Figure A.1:
+# Online Appendix Figure 13:
 #   Simulation evidence on the magnitude of X_{tau_f} - X_{tau_e}, comparing
 #   homoskedastic and stochastic-volatility designs.
 #
-# Online Appendix Figure A.2:
+# Online Appendix Figure 14:
 #   Additional cryptocurrency bubble-detection results for:
 #     - Cardano
 #     - Solana
@@ -57,7 +57,7 @@ FIGURE_A2_PDF <- file.path(OUTPUT_DIR, "crypto_four_panel_bubbles.pdf")
 FIGURE_A2_PNG <- file.path(OUTPUT_DIR, "crypto_four_panel_bubbles.png")
 
 ################################################################################
-# Online Appendix Figure A.1
+# Online Appendix Figure 13
 # Simulation evidence for X_{tau_f} - X_{tau_e}
 ################################################################################
 
@@ -252,7 +252,7 @@ make_log_gap_comparison_plot <- function(
 }
 
 ################################################################################
-# Online Appendix Figure A.2
+# Online Appendix Figure 14
 # Additional cryptocurrency SV-ADF date-stamping results
 ################################################################################
 
